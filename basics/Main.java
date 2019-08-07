@@ -22,7 +22,7 @@ public class Main {
 
     //Command Line Clock
 
-    Clock();
+    // Clock();
 
   }
   // Pluralize
@@ -38,41 +38,51 @@ public class Main {
   // Flipping coins
   public static int flipNHeads(int n){
     int totalFlips = 0;
-    int tailCount = 0;
-    int headCount = 0;
+    int numberOfHeadsInARow = 0;
+  
 
-    while (headCount < n) {
-      if (Math.random() < .5){
+    while (numberOfHeadsInARow != n) {
+      totalFlips ++;
+
+      // Flip the coin
+      double headsOrTails = Math.random();
+
+      if (headsOrTails >= 0.5){
+        numberOfHeadsInARow ++;
         System.out.println("heads");
-        headCount ++;
-        totalFlips ++;
-
       }else{
-      
+        numberOfHeadsInARow = 0;
         System.out.println("tails");
-        totalFlips ++;
-
       }
-
     }
-    System.out.println("It took " + totalFlips + " flips to flip " + n + " heads in a row");
-    return totalFlips;
+
+  String message = "It took " + pluralize("flip",totalFlips) + " to flip " + pluralize("head", n) + " in a row";
+
+  return message;
 
   }
 
   //Command line clock 
   
   //TODO: write method to increment the time by second. Currently it shows original timestamp forever
-  public static String Clock(){
-    LocalDateTime now = LocalDateTime.now();
-    String time = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-    while(time == time){
+  // public static void Clock(){
+  //   int currentSecond = 0;
+  //   while(true){
+  //     LocalDateTime now = LocalDateTime.now();
+  //     String time = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
 
-      System.out.println(time);
+  //     if (currentSecond != second){
+  //       currentSecond = second;
+
+  //       if 
+  //       System.out.println(time);
+
+  //     }
+
       
-    }
-    return time;
-  }
+  //   }
+  //   return time;
+  // }
 
   
 
