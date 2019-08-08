@@ -34,4 +34,32 @@ public class LibraryTest {
     public void testGetLowestAverage() {
         assertArrayEquals("Should find lowest average for nested arrays", new int[]{1,2,3,4}, Library.getLowestAverage(new int[][]{{1,2,3,4}, {5,6,7,8}}));
     }
+
+    @Test
+    public void testAnalyzeWeatherData() {
+        // Daily average temperatures for Seattle, October 1-28 2017
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+        assertTrue(" Highest and lowest temps should print out", Library.analyzeWeatherData(weeklyMonthTemperatures).contains("72") && Library.analyzeWeatherData(weeklyMonthTemperatures).contains("51"));
+    }
+
+//    @Test
+//    public void testTallyVotes_findWinner(){
+//        List<String> votes = new ArrayList<>();
+//        votes.add("Bush");
+//        votes.add("Bush");
+//        votes.add("Bush");
+//        votes.add("Shrub");
+//        votes.add("Hedge");
+//        votes.add("Shrub");
+//        votes.add("Bush");
+//        votes.add("Hedge");
+//        votes.add("Bush");
+//
+//        assertTrue("The winner should be printed", Library.TallyVotes(votes).contains("Bush"));
+//    }
 }
