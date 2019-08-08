@@ -3,10 +3,10 @@
  */
 package basicLibrary;
 
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
 
 public class Library {
+
     public boolean someLibraryMethod() {
         return true;
     }
@@ -20,20 +20,12 @@ public class Library {
 
         //  creating a fair die
         Random sideOfDie = new Random();
-<<<<<<< HEAD
-        for( int i = 0; i < n; i++){
-        roll = sideOfDie.nextInt(numSides) + 1;
-
-        allRollsArr[i] = roll;
-        rollVal = rollVal + roll;
-=======
         for (int i = 0; i < n; i++) {
             roll = sideOfDie.nextInt(numSides) + 1;
             allRollsArr[i] = roll;
             rollVal = rollVal + roll;
->>>>>>> 4cae8cd74e7e3973a4ed627908e44c0dfba5519c
-        }
 
+        }
         return allRollsArr;
 
     }
@@ -47,7 +39,6 @@ public class Library {
                 }
             }
         }
-        System.out.println(Arrays.toString(arr));
         return duplicates;
     }
 
@@ -71,5 +62,50 @@ public class Library {
         return bestSoFar;
     }
 
+    public static String analyzeWeatherData(int[][] weeklyMonthTemperatures) {
+        int lowestTemp = weeklyMonthTemperatures[0][0];
+        int highestTemp = weeklyMonthTemperatures[0][0];
 
+        // HashSet
+        HashSet<Integer> temps = new HashSet<>();
+
+        // Iterate through a data set and fill HashSet
+        for (int[] weeklyMonthTemperature : weeklyMonthTemperatures) {
+            for (int i : weeklyMonthTemperature) {
+                temps.add(i);
+
+                if (i < lowestTemp) {
+                    lowestTemp = i;
+                }
+                if (i > highestTemp) {
+                    highestTemp = i;
+                }
+            }
+
+
+        }
+
+        //
+        String message = String.format("High: %d %nLow: %d", highestTemp, lowestTemp);
+
+        // Now to reveal which temps are not in the data set
+
+        for (int i = lowestTemp; i < highestTemp; i++) {
+            if (!temps.contains(i)) {
+                message += String.format("%nNever saw temperature: %d", i);
+            }
+        }
+
+        return message;
+
+    }
 }
+//    public static String tallyVotes(List<String> votes){
+//        String winner = "";
+//        int winnerVotes = 0;
+//
+//    }
+//}
+
+
+
