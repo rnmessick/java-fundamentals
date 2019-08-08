@@ -15,20 +15,23 @@ public class LibraryTest {
     }
 
     @Test
-    public void testRoll(){
-        assertArrayEqual("Six sided die is rolled, random value must be printed", new int[] {3,2,1,4}, roll(4));
+    public void testRoll_buildArray(){
+        assertTrue("Six sided die is rolled, array values must be added", Library.roll(13).length == 13);
     }
 
-    private void assertArrayEqual(String s, int[] ints, int[] roll) {
-    }
 
 
     @Test
-    public void testContainsDuplicates_false() {
-        assertTrue("Array should have no duplicates", Library.containsDuplicates(new int[] {1,2,2,3}));
+    public void testContainsDuplicates_contains() {
+        assertTrue("Array should have no duplicates, should return true", Library.containsDuplicates(new int[] {1,2,2,3}));
     }
     @Test
-    public void testContainsDuplicates() {
-        assertFalse("Array should have no duplicates asserttrue", Library.containsDuplicates(new int[] {1,2,3,4}));
+    public void testContainsDuplicates_doesNotContain() {
+        assertFalse("Array should have no duplicates, should return false", Library.containsDuplicates(new int[] {1,2,3,4}));
+    }
+
+    @Test
+    public void testGetLowestAverage() {
+        assertArrayEquals("Should find lowest average for nested arrays", new int[]{1,2,3,4}, Library.getLowestAverage(new int[][]{{1,2,3,4}, {5,6,7,8}}));
     }
 }

@@ -5,6 +5,7 @@ package basicLibrary;
 
 import java.util.Arrays;
 import java.util.Random;
+
 public class Library {
     public boolean someLibraryMethod() {
         return true;
@@ -15,26 +16,33 @@ public class Library {
         int numSides = 6;
         int roll = 0;
         int rollVal = 0;
-        int[] allRollsArr = new int[n] ;
+        int[] allRollsArr = new int[n];
 
         //  creating a fair die
         Random sideOfDie = new Random();
+<<<<<<< HEAD
         for( int i = 0; i < n; i++){
         roll = sideOfDie.nextInt(numSides) + 1;
 
         allRollsArr[i] = roll;
         rollVal = rollVal + roll;
+=======
+        for (int i = 0; i < n; i++) {
+            roll = sideOfDie.nextInt(numSides) + 1;
+            allRollsArr[i] = roll;
+            rollVal = rollVal + roll;
+>>>>>>> 4cae8cd74e7e3973a4ed627908e44c0dfba5519c
         }
-        System.out.println("dice roll array " + Arrays.toString(allRollsArr));
+
         return allRollsArr;
 
     }
 
-    public static boolean containsDuplicates(int[] arr){
+    public static boolean containsDuplicates(int[] arr) {
         boolean duplicates = false;
-    for(int i = 0; i < arr.length; i++ ){
-            for (int j = i + 1; j < arr.length; j++){
-                if ((i != j) && (arr[i] == arr[j])){
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
                     duplicates = true;
                 }
             }
@@ -42,5 +50,26 @@ public class Library {
         System.out.println(Arrays.toString(arr));
         return duplicates;
     }
+
+    //get averages method -helper function to be called later
+    public static double getAverage(int[] arr) {
+        int total = 0;
+        for (int i = 0; i < arr.length; i++) {
+            total += arr[i];
+        }
+        return total / arr.length;
+    }
+
+    // Calculating all averages
+    public static int[] getLowestAverage(int[][] arrs) {
+        int[] bestSoFar = arrs[0];
+        for (int[] currentArray : arrs) {
+            if (getAverage(currentArray) < getAverage((bestSoFar))) {
+                bestSoFar = currentArray;
+            }
+        }
+        return bestSoFar;
+    }
+
 
 }
