@@ -43,3 +43,15 @@ Write a method called containsDuplicates that returns true or false depending on
 **Resources**
 
 https://stackoverflow.com/questions/3951547/java-array-finding-duplicates
+
+**Calculating Averages**
+
+Write a method that accepts an array of integers and calculates and returns the average of all the values in the array.
+
+**Arrays of Arrays**
+
+Given an array of arrays calculate the average value for each array and return the array with the lowest average.
+
+**Resources**
+
+codefellows Java 401 code review follow along.

@@ -21,7 +21,7 @@ public class Library {
         Random sideOfDie = new Random();
         for( int i = 0; i < n; i++){
         roll = sideOfDie.nextInt(numSides) + 1;
-        System.out.println("Roll is: " + roll);
+
         allRollsArr[i] = roll;
         rollVal = rollVal + roll;
         }
