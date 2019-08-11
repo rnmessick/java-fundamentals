@@ -26,8 +26,8 @@ public class Library {
             rollVal = rollVal + roll;
 
         }
+//        System.out.println(Arrays.toString(allRollsArr));
         return allRollsArr;
-
     }
 
     public static boolean containsDuplicates(int[] arr) {
@@ -48,8 +48,7 @@ public class Library {
         for (int i = 0; i < arr.length; i++) {
             total += arr[i];
         }
-        return total / arr.length;
-    }
+        return total / arr.length;    }
 
     // Calculating all averages
     public static int[] getLowestAverage(int[][] arrs) {
@@ -81,11 +80,7 @@ public class Library {
                     highestTemp = i;
                 }
             }
-
-
         }
-
-        //
         String message = String.format("High: %d %nLow: %d", highestTemp, lowestTemp);
 
         // Now to reveal which temps are not in the data set
@@ -95,17 +90,6 @@ public class Library {
                 message += String.format("%nNever saw temperature: %d", i);
             }
         }
-
         return message;
-
     }
 }
-//    public static String tallyVotes(List<String> votes){
-//        String winner = "";
-//        int winnerVotes = 0;
-//
-//    }
-//}
-
-
-
