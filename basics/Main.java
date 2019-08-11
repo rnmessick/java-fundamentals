@@ -30,14 +30,12 @@ public class Main {
         String plural = singular + "s";
         return count == 1 ? singular : plural;
 
-
     }
 
     // Flipping coins
     public static String flipNHeads(int n) {
         int totalFlips = 0;
         int numberOfHeadsInARow = 0;
-
 
         while (numberOfHeadsInARow != n) {
             totalFlips++;
@@ -58,7 +56,6 @@ public class Main {
             }
         }
         return "Please select an integer greater than 0.";
-
 
     }
 
@@ -92,7 +89,4 @@ public class Main {
     }
 }
 
-  
-
-
-
+ 
