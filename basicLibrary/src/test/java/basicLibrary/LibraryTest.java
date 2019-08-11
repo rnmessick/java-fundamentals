@@ -19,8 +19,6 @@ public class LibraryTest {
         assertTrue("Six sided die is rolled, array values must be added", Library.roll(13).length == 13);
     }
 
-
-
     @Test
     public void testContainsDuplicates_contains() {
         assertTrue("Array should have no duplicates, should return true", Library.containsDuplicates(new int[] {1,2,2,3}));
