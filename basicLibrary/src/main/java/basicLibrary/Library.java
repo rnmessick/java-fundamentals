@@ -81,15 +81,10 @@ public class Library {
                     highestTemp = i;
                 }
             }
-
-
         }
-
-        //
         String message = String.format("High: %d %nLow: %d", highestTemp, lowestTemp);
 
         // Now to reveal which temps are not in the data set
-
         for (int i = lowestTemp; i < highestTemp; i++) {
             if (!temps.contains(i)) {
                 message += String.format("%nNever saw temperature: %d", i);
@@ -97,15 +92,37 @@ public class Library {
         }
 
         return message;
+    }
 
+    public static String TallyVotes(List<String> votes){
+        String winner = "";
+        int winnerVotes = 0;
+
+        HashMap<String, Integer> candidates = new HashMap<>();
+
+        // tally votes, add to hash map
+        for (String vote : votes) {
+            if (candidates.containsKey(vote)) {
+                int temp = candidates.get(vote);
+                temp++;
+
+                candidates.replace(vote, temp);
+            } else {
+                candidates.put(vote, 1);
+            }
+        }
+
+        for (Map.Entry<String, Integer> tally : candidates.entrySet() ) {
+            String candidate = tally.getKey();
+            int numVotes = tally.getValue();
+
+            if (numVotes > winnerVotes) {
+                winnerVotes = numVotes;
+                winner = candidate;
+            } else if (numVotes == winnerVotes) {
+                winner += String.format(" and %s", candidate);
+            }
+        }
+        return String.format("%s received the most votes!", winner);
     }
 }
-//    public static String tallyVotes(List<String> votes){
-//        String winner = "";
-//        int winnerVotes = 0;
-//
-//    }
-//}
-
-
-

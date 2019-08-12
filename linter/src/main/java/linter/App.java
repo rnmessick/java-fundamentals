@@ -9,28 +9,37 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
-
     public static void main(String[] args) {
-        readJavascriptFile();
+        System.out.println(readJavascriptFile("src/main/resources/gates.js"));
     }
 
-    // scanning came from https://docs.oracle.com/javase/tutorial/essential/io/scanning.html
-    public static void readJavascriptFile() {
+    public static String readJavascriptFile(String path) {
         Scanner s = null;
         int lineCount = 0;
-            s = new Scanner(new BufferedReader(new FileReader("./src/main/resources/gates.js")));
-            while ((CurrentLine = ReadFile.readLine()) != null); {
+        String output = "";
+        try {
+            // scanning came from https://docs.oracle.com/javase/tutorial/essential/io/scanning.html
+            s = new Scanner(new BufferedReader(new FileReader(path)));
+            if (s.hasNextLine() == false) return "file empty";
+            while (s.hasNextLine()) {
+                //isolate the line
+                String line = s.nextLine();
+                //populate line number
                 lineCount++;
-                if(CurrentLine.trim.endWith(";")){
-                                }
-                else{
-                    System.out.println("Line " + lineCount + " missing semi-colon");
+                char end = ' ';
+                if (line.length() > 0) end = line.charAt(line.length() - 1);
+                if (end != ';' && end != '{' && end != '}' && !(line.contains("if")) && !(line.contains("else"))) {
+                    output = "Line " + lineCount + ": Missing semi-colon.\n";
+                    return output;
                 }
-
+            }
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+            return "The file was not found";
 
     }
+        return "File contains no missing semi-colons.";
+    }
+
 }
-}
+

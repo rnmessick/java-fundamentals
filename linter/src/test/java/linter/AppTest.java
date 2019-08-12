@@ -7,8 +7,36 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class AppTest {
-    @Test public void testAppHasAGreeting() {
+    @Test
+    public void testReadJavascriptFile_ErrorLine() {
         App classUnderTest = new App();
-        assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+        String path = ".src/main/resources/gates.js";
+        String expected = "Line 3: Missing semi-colon.";
+        assertEquals(classUnderTest.readJavascriptFile(path), expected);
+    }
+
+    @Test
+    public void testReadJavascriptFile_noErrors() {
+        App classUnderTest = new App();
+        String path = ".src/main/resources/noErrors.js";
+        String expected = "File contains no missing semi-colons.";
+        assertEquals(classUnderTest.readJavascriptFile(path), expected);
+    }
+
+    @Test
+    public void testReadJavascriptFile_null() {
+        App classUnderTest = new App();
+        String path = ".src/main/resources/null.js";
+        String expected = "file empty";
+        assertEquals(classUnderTest.readJavascriptFile(path), expected);
+    }
+
+    @Test
+    public void testReadJavascript_wrongFile() {
+        App classUnderTest = new App();
+        String path = ".src/main/resources/wrongFile.js";
+        String expected = "The file was not found";
+        assertEquals(classUnderTest.readJavascriptFile(path), expected);
+
     }
 }
