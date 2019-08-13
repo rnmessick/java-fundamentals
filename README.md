@@ -65,3 +65,7 @@ Analyzing Weather Data
 Tallying Election
 
 - Write a function called tally that accepts a List of Strings representing votes and returns one string to show what got the most votes.
+
+## Inheritance
+
+[See this project's README](../java-fundamentals/inheritance/README.md)
