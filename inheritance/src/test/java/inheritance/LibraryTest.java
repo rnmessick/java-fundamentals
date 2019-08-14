@@ -29,12 +29,12 @@ public class LibraryTest {
         assertEquals("String should match Restaurant test", "Restaurant Name: The Alchemist's Alembic, 5 Stars of 5 and 3$(of $$$$$)", testRestaurant.toString());
     }
 
-    @Test
-    public void testReview_getReview() {
-        testReview = new Review("The elf shopgirl was super rude.", "Larissa Vicelord", 1, Restaurant.name);
-        testRestaurant.addReview(testReview);
-        assertEquals("Shop review should match review with shop details", "Restaurant Name: Cloak and Dagger Review: The elf shopgirl was super rude. Review by Larissa Vicelord, 1 stars out of 5", testRestaurant.getReviews());
-    }
+//    @Test
+//    public void testReview_getReview() {
+//        testReview = new Review("The elf shopgirl was super rude.", "Larissa Vicelord", 1, Restaurant.name);
+//        testRestaurant.addReview(testReview);
+//        assertEquals("Shop review should match review with shop details", "Restaurant Name: Cloak and Dagger Review: The elf shopgirl was super rude. Review by Larissa Vicelord, 1 stars out of 5", testRestaurant.getReviews());
+//    }
 
     Review testReview;
     @Before
