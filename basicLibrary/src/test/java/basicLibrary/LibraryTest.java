@@ -5,6 +5,11 @@ package basicLibrary;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+
 import static basicLibrary.Library.*;
 import static org.junit.Assert.*;
 
@@ -45,19 +50,19 @@ public class LibraryTest {
         assertTrue(" Highest and lowest temps should print out", Library.analyzeWeatherData(weeklyMonthTemperatures).contains("72") && Library.analyzeWeatherData(weeklyMonthTemperatures).contains("51"));
     }
 
-//    @Test
-//    public void testTallyVotes_findWinner(){
-//        List<String> votes = new ArrayList<>();
-//        votes.add("Bush");
-//        votes.add("Bush");
-//        votes.add("Bush");
-//        votes.add("Shrub");
-//        votes.add("Hedge");
-//        votes.add("Shrub");
-//        votes.add("Bush");
-//        votes.add("Hedge");
-//        votes.add("Bush");
-//
-//        assertTrue("The winner should be printed", Library.TallyVotes(votes).contains("Bush"));
-//    }
+    @Test
+    public void testTallyVotes_findWinner(){
+        List<String> votes = new ArrayList();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+
+        assertTrue("The winner should be printed", Library.TallyVotes(votes).contains("Bush"));
+    }
 }
