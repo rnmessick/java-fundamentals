@@ -5,6 +5,9 @@ package inheritance;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import java.lang.reflect.Type;
+
 import static org.junit.Assert.*;
 
 public class LibraryTest {
@@ -13,29 +16,52 @@ public class LibraryTest {
         Library classUnderTest = new Library();
         assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
     }
-    Library.Restaurant testRestaurant;
+    Restaurant testRestaurant;
     @Before
 //    @Test
     public void testRestaurant_constructor() {
-        testRestaurant = new Library.Restaurant("The Alchemist's Alembic", 5, 3);
+        testRestaurant = new Restaurant("The Alchemist's Alembic", 5, 3);
 
     }
+
     @Test
     public void testRestaurant_toString() {
-        assertEquals("String should match Restaurant test", "Name: The Alchemist's Alembic, 5 Stars and 3$ (of $$$$$)", testRestaurant.toString());
+        assertEquals("String should match Restaurant test", "Restaurant Name: The Alchemist's Alembic, 5 Stars of 5 and 3$(of $$$$$)", testRestaurant.toString());
     }
 
-    Library.Review testReview;
+    @Test
+    public void testReview_getReview() {
+        testReview = new Review("The elf shopgirl was super rude.", "Larissa Vicelord", 1, Restaurant.name);
+        testRestaurant.addReview(testReview);
+        assertEquals("Shop review should match review with shop details", "Restaurant Name: Cloak and Dagger Review: The elf shopgirl was super rude. Review by Larissa Vicelord, 1 stars out of 5", testRestaurant.getReviews());
+    }
+
+    Review testReview;
     @Before
     public void testReview_constructor() {
-        testReview = new Library.Review("This place is the best for drinking elven wine.", "Juniper Meadows", 5);
+        testReview = new Review( "This place is the best for drinking elven wine.", "Juniper Meadows", 5);
     }
 
     @Test
     public void testReview_toString() {
-        assertEquals("String should match Review test", "Restaurant: The Alchemist's Alembic. The This place is the best for drinking elven wine. Review by Juniper Meadows, 5 stars out of 5.", testReview.toString());
+        assertEquals("String should match Review test", "This place is the best for drinking elven wine. Review by Juniper Meadows, 5 stars out of 5.", testReview.toString());
     }
 
+    Shop testShop;
+    @Before
+    public void testShop_constructor() {
+        testShop = new Shop("Cloak and Dagger", "A wondrous shop for all your adventuring needs!", 4);
+    }
+    @Test
+    public void testShop_toString() {
+        assertEquals("Shop description should be a string", "Shop name: Cloak and Dagger, Description: A wondrous shop for all your adventuring needs! How many $ signs? 4", testShop.toString());
+    }
+//
+//    @Test
+//    public void testShop_getReview() {
+//        testReview = new Review( "The elf shopgirl was super rude.", "Larissa Vicelord", 1);
+//        assertEquals("Shop review should match review with shop details", "Shop Name: Cloak and Dagger Review: The elf shopgirl was super rude. Review by Larissa Vicelord, 1 stars out of 5", testShop.getReviews().toString());
+//    }
 
 
 }
