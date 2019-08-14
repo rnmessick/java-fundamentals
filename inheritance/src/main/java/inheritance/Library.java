@@ -23,6 +23,8 @@ public class Library {
         }
 
         // add reviews
+        // class discussion: Restaurant has ArrayList Review reviews. 1 to many. Review has a reference to restaurant object
+        // when you see a restaurant, you also want the reviews, on reviews you want to be able to access the restaurant names
         public void addReview(Restaurant name, String body, String author, int numberStars) {
             Review newReview = new Review(name, body, author, numberStars);
 
@@ -48,7 +50,10 @@ public class Library {
 
          // string method for reviews
         public String toString() {
-            return "Restaurant: " + Restaurant.name + ". " + this.body + " " + "Review by " + this.author + ", " + numberStars + " stars out of 5.";
+            return "Restaurant: " + Restaurant.name + ". " +
+                    this.body + " " + "Review by " +
+                    this.author + ", " +
+                    numberStars + " stars out of 5.";
         }
     }
 
