@@ -34,8 +34,8 @@ public class Shop implements Reviewable {
         int stars = 5;
 
         if (reviews.size() > 0) {
-            for (int i = 0; i < reviews.size(); i++) {
-                stars += reviews.get(i).numberStars;
+            for (Review review : reviews) {
+                stars += review.numberStars;
             }
             stars = stars/reviews.size();
         }

@@ -11,7 +11,7 @@ public class TheaterTest {
     Theater testTheater;
     @Before
     public void testTheater_constructor() {
-        testTheater = new Theater("CineStar", new LinkedList<String>());
+        testTheater = new Theater("CineStar", new LinkedList<>());
     }
 
     @Test

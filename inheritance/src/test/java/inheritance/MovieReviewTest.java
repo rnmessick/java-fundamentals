@@ -17,7 +17,7 @@ public class MovieReviewTest {
 
     @Before
     public void testMovieReview_constructor() {
-        testTheater = new Theater("CineStar", new LinkedList<String>());
+        testTheater = new Theater("CineStar", new LinkedList<>());
         testMovie = new LinkedList<>();
         testMovie.add("Detective Pikachu");
         reviewTheater = new MovieReview("Floor was sticky, popcorn stale.", "Belatrix LeStrange", 2);
