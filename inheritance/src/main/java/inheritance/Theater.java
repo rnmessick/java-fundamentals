@@ -2,18 +2,22 @@ package inheritance;
 
 import java.util.LinkedList;
 
-public class Restaurant implements Reviewable {
+public class Theater implements Reviewable {
     String name;
-    int numberStars;
-    int priceCategory;
-
+    LinkedList<String> movies = new LinkedList<>();
     LinkedList<Review> reviews = new LinkedList<>();
 
-    // Restaurant constructor
-    public Restaurant(String name, int numberStars, int priceCategory) {
+    public Theater(String name, LinkedList<String> movies) {
         this.name = name;
-        this.numberStars = numberStars;
-        this.priceCategory = priceCategory;
+        this.movies = movies;
+    }
+
+    public void addMovie(String movie) {
+        movies.add(movie);
+    }
+
+    public void removeMovie(String movie) {
+        movies.remove(movie);
     }
 
     public String getName() {
@@ -24,12 +28,11 @@ public class Restaurant implements Reviewable {
         return this.reviews;
     }
 
-    public void addReview(Review review) {
-        if (review.reviewed == null && review.getClass() != MovieReview.class) {
+    public void addReview(Review review){
+        if(review.reviewed == null) {
             review.reviewed = this;
             reviews.add(review);
         }
-
     }
 
     public int updateStars() {
@@ -43,12 +46,9 @@ public class Restaurant implements Reviewable {
         }
         return stars;
     }
-
     public String toString() {
-        return "Restaurant Name: " + name + ", " +
-                numberStars + " Stars of 5 and " +
-                priceCategory + "$(of $$$$$)";
+        return name + " Theater is currently showing: " +
+                movies + ". Users rate this location " +
+                updateStars() + " stars out of 5.";
     }
-
 }
-
